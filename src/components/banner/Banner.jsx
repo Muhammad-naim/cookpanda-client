@@ -43,11 +43,11 @@ const Banner = () => {
                 className="mySwiper"
             >
                 {
-                    foodItems.map(item => 
+                    foodItems.map((item,index) => 
                         <SwiperSlide
                             className="lg:h-1/3"
-                            style={{ backgroundImage: `url("https://i.ibb.co/B6zQMCt/Adobe-Stock-261096892-Preview.jpg")`, backgroundRepeat: "no-repeat", backgroundPosition: 'center', backgroundSize: 'cover' }}
-                            key={item.id}
+                            style={{ backgroundImage: `url(${item.foodImageURL})`, backgroundRepeat: "no-repeat", backgroundPosition: 'center', backgroundSize: 'cover' }}
+                            key={index}
                         >
                             <BannerCard
                             key={item.id}

@@ -5,7 +5,11 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      alias: {
+        "card-content-container": "text-white"
+      },
+    },
   },
   plugins: [require("daisyui")],
   daisyui: {
