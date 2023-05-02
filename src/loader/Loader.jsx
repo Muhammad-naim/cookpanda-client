@@ -1,5 +1,9 @@
 import React, { createContext, useEffect, useState } from 'react';
 
+
+
+
+export const loaderContext = createContext();
 const Loader = () => {
     const [foodItems, setFoodItems] = useState([])
     const [chefData, setChefData] = useState([])
@@ -16,11 +20,15 @@ const Loader = () => {
             .catch(error => console.log(error))
     }, [])
     console.log(foodItems, chefData);
-    const loaderContext = createContext();
+    
+    const data = {
+        chefData,
+        foodItems
+    }
     return (
-        <div>
-            
-        </div>
+        <loaderContext.Provider value={data}>
+            <dat/>
+        </loaderContext.Provider>
     );
 };
 

@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useContext, useRef, useState, useEffect } from "react";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 
@@ -10,8 +10,22 @@ import "./Banner.css";
 
 // import required modules
 import { Autoplay, Pagination, Navigation } from "swiper";
+import { loaderContext } from "../../loader/Loader";
+import BannerCard from "./bannerCard/BannerCard";
 
 const Banner = () => {
+    const [foodItems, setFoodItems] = useState([])
+    const [chefData, setChefData] = useState([])
+    useEffect(() => {
+        fetch('https://cookpanda-backend-muhammad-naim.vercel.app/items')
+            .then(res => res.json())
+            .then(data => setFoodItems(data))
+            .catch(error => console.log(error))
+    }, [])
+
+
+    // const { foodItems } = useContext(loaderContext);
+    // console.log(foodItems);
     return (
         <>
             <Swiper
@@ -28,15 +42,22 @@ const Banner = () => {
                 modules={[Autoplay, Pagination, Navigation]}
                 className="mySwiper"
             >
-                <SwiperSlide>Slide 1</SwiperSlide>
-                <SwiperSlide>Slide 2</SwiperSlide>
-                <SwiperSlide>Slide 3</SwiperSlide>
-                <SwiperSlide>Slide 4</SwiperSlide>
-                <SwiperSlide>Slide 5</SwiperSlide>
-                <SwiperSlide>Slide 6</SwiperSlide>
-                <SwiperSlide>Slide 7</SwiperSlide>
-                <SwiperSlide>Slide 8</SwiperSlide>
-                <SwiperSlide>Slide 9</SwiperSlide>
+                {
+                    foodItems.map(item => 
+                        <SwiperSlide
+                            className="lg:h-1/3"
+                            style={{ backgroundImage: `url("https://i.ibb.co/B6zQMCt/Adobe-Stock-261096892-Preview.jpg")`, backgroundRepeat: "no-repeat", backgroundPosition: 'center', backgroundSize: 'cover' }}
+                            key={item.id}
+                        >
+                            <BannerCard
+                            key={item.id}
+                                data={item}
+                            >
+
+                            </BannerCard>
+                        </SwiperSlide>
+                    )
+               }
             </Swiper>
         </>
     );
