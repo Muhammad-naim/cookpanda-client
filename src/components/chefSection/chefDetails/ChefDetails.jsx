@@ -17,16 +17,13 @@ const ChefDetails = () => {
                 setIsFiltered(true)
             })
     }, [])
-    // console.log(chefDetails.recipeIds);
-    // console.log(foodItems);
+
     const { recipeIds } = chefDetails;
     let chefRecipes = []
     if (isFiltered) {
          chefRecipes = foodItems.filter(item => recipeIds.includes(item?.foodID))
     }
-    
-    console.log(chefRecipes);
-    return (
+        return (
         <div className='my-8'>
             <div className="hero  bg-base-200">
                 <div className="hero-content grid grid-cols-1 lg:grid-cols-2">

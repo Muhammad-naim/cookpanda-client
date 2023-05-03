@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const BannerCard = ({ data }) => {
     return (
@@ -11,7 +12,7 @@ const BannerCard = ({ data }) => {
                             <div>
                                 <h1 className="text-5xl font-bold">{data.name}</h1>
                                 <p className="py-8 shadow">{data.description}</p>
-                                <button className="btn btn-sm btn-primary">See more</button>
+                                <Link to={`/items/${data.foodID}`} className="btn btn-sm btn-primary">See more</Link>
                             </div>
                         </div>
                     </div>

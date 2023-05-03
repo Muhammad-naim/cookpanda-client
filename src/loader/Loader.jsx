@@ -19,7 +19,7 @@ const Loader = ({children}) => {
             .then(data => setChefData(data))
             .catch(error => console.log(error))
     }, [])
-    console.log(foodItems, chefData);
+    // console.log(foodItems, chefData);
     
     const data = {
         chefData,

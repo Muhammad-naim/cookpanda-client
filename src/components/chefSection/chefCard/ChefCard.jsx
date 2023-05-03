@@ -3,7 +3,7 @@ import {FaArrowRight, FaThumbsUp} from 'react-icons/fa'
 import { useNavigate } from 'react-router-dom';
 const ChefCard = ({ data }) => {
     const navigate = useNavigate();
-    console.log(data);
+    // console.log(data);
     const handleDetailsBtn = (id) => {
         navigate(`/chef/${id}`)
     }
