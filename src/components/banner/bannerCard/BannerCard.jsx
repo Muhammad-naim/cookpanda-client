@@ -11,7 +11,7 @@ const BannerCard = ({ data }) => {
                         <div className="hero-content flex-col lg:flex-row">
                             <div>
                                 <h1 className="text-5xl font-bold">{data.name}</h1>
-                                <p className="py-8 shadow">{data.description}</p>
+                                <p className="py-8">{data.description}</p>
                                 <Link to={`/items/${data.foodID}`} className="btn btn-sm btn-primary">See more</Link>
                             </div>
                         </div>

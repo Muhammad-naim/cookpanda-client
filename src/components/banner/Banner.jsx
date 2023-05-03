@@ -14,17 +14,16 @@ import { loaderContext } from "../../loader/Loader";
 import BannerCard from "./bannerCard/BannerCard";
 
 const Banner = () => {
-    const [foodItems, setFoodItems] = useState([])
-    const [chefData, setChefData] = useState([])
-    useEffect(() => {
-        fetch('https://cookpanda-backend-muhammad-naim.vercel.app/items')
-            .then(res => res.json())
-            .then(data => setFoodItems(data))
-            .catch(error => console.log(error))
-    }, [])
+    // const [foodItems, setFoodItems] = useState([])
+    // useEffect(() => {
+    //     fetch('https://cookpanda-backend-muhammad-naim.vercel.app/items')
+    //         .then(res => res.json())
+    //         .then(data => setFoodItems(data))
+    //         .catch(error => console.log(error))
+    // }, [])
 
 
-    // const { foodItems } = useContext(loaderContext);
+    const { foodItems } = useContext(loaderContext);
     // console.log(foodItems);
     return (
         <>
@@ -46,7 +45,7 @@ const Banner = () => {
                     foodItems.map((item,index) => 
                         <SwiperSlide
                             className="lg:h-1/3"
-                            style={{ backgroundImage: `url(${item.foodImageURL})`, backgroundRepeat: "no-repeat", backgroundPosition: 'center', backgroundSize: 'cover' }}
+                            style={{ backgroundImage: `url(${item.foodImageURL})`, backgroundRepeat: "no-repeat", backgroundPosition: 'center', backgroundSize: 'cover', }}
                             key={index}
                         >
                             <BannerCard

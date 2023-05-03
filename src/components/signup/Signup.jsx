@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 const Signup = () => {
+
     const [isvisible, setIsVisible] = useState(false)
     const [feedbackMessage, setFeedbackMessage] = useState('')
     const handleShowBtn = () => {
@@ -10,32 +11,24 @@ const Signup = () => {
     const handleSubmit = (event) => {
         event.preventDefault();
         const form = event.target;
+        const imgURL = form.imageUrl.value;
         const name = form.name.value;
         const email = form.email.value;
         const password = form.password.value;
         const confirm = form.confirm.value;
-        if (password.length < 8) {
-            alert("Your password must be at least 8 characters");
+        console.log(imgURL, name, email, password, confirm);
+        if (password.length < 6) {
+            setFeedbackMessage("Your password must be at least 6 characters");
             return
         }
-        // if (!/(?=.*[A-Z])/.test(password)) {
-        //     alert("Your password must contain at least one Uppercase letter.");
-        //     return
-        // }
-        // if (!/(?=.*[0-9])/.test(password)) {
-        //     alert("Please add at least a digit.");
-        //     return
-        // }
-        // if (!/(?=.*[!@#$%^&*])/.test(password)) {
-        //     alert("please add at least one special character.")
-        // }
-        // if (password !== confirm) {
-        //     alert("password did not match.")
-        // }
+        if (password !== confirm) {
+            setFeedbackMessage("password didn't match.")
         }
+
+    }
     return (
         <>
-            <div className="hero min-h-screen ">
+            <div className="hero max-h-screen lg:min-h-screen ">
             <div className="hero-content flex-col ">
                 <div className="text-center lg:text-left">
                     <h1 className="text-5xl font-bold">Register now!</h1>
@@ -46,27 +39,28 @@ const Signup = () => {
                             <input type="text" name="name" placeholder="name" className="input input-bordered" required/>
                         </div>
                         <div  className="form-control">
+                            <input type="url" name="imageUrl" placeholder="Photo URL" className="input input-bordered" required/>
+                        </div>
+                        <div  className="form-control">
                             <input type="text" name="email" placeholder="email" className="input input-bordered" required/>
                         </div>
                         <div className="form-control relative">
                             <input type={isvisible? "text" : "password"} name='password' placeholder="password" className="input input-bordered" required/>
-                                <button
-                                type='button'
+                                <span
                                 onClick={handleShowBtn}
                                 className='inline absolute top-1/3 right-2'
                                 >
                                 {isvisible? <FaEye/> : <FaEyeSlash/>}
-                                </button>
+                                </span>
                         </div>
                         <div className="form-control relative">
                             <input type={isvisible? "text" : "password"} name='confirm' placeholder="confirm password" className="input input-bordered" required />
-                                <button
-                                type='button'
+                                <span
                                 onClick={handleShowBtn}
                                 className='inline absolute top-1/3 right-2'
                                 >
                                 {isvisible? <FaEye/> : <FaEyeSlash/>}
-                                </button>
+                                </span>
                             </div>
                             <p><small>{feedbackMessage}</small></p>
                         <div className="form-control mt-6">

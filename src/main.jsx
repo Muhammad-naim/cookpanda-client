@@ -16,6 +16,7 @@ import Blogs from './components/blogs/Blogs';
 import FoodDetails from './components/foodSection/foodDetails/FoodDetails';
 
 
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -31,11 +32,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/register",
-        element: <Signup />
+        element: <Signup/>
       },
       {
         path: '/chef/:id',
-        element: <ChefDetails />
+        element: <ChefDetails/>
       },
       {
         path: "/items/:id",
@@ -43,22 +44,22 @@ const router = createBrowserRouter([
       },
       {
         path: '/blogs',
-        element: <Blogs/>
+        element: <Blogs />
       }
     ]
   },
   {
     path: "/test",
-    element: <CoverflowEffect/>
+    element: <CoverflowEffect />
   },
-  
+
 ]);
 
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <Loader>
-      <RouterProvider router={router} />
-    </Loader>
+      <Loader>
+        <RouterProvider router={router}/>
+      </Loader>
   </React.StrictMode>,
 )

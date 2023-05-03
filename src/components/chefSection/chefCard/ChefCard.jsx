@@ -8,7 +8,7 @@ const ChefCard = ({ data }) => {
         navigate(`/chef/${id}`)
     }
     return (
-        <div className="card card-compact shadow-md ">
+        <div className="card card-compact shadow-md text-center lg:text-left">
             <figure>
                 <img
                     src={data.chefPhotoURL}
@@ -16,13 +16,13 @@ const ChefCard = ({ data }) => {
                     className='rounded'
                     />
             </figure>
-            <div className="card-body">
-                <h2 className="card-title">{data.chefName}</h2>
+            <div className="card-body ">
+                <h2 className="card-title mx-auto lg:mx-0">{data.chefName}</h2>
                 <p>Experience: {data.yearsOfExperience}</p>
                 <p>Items: {data.numOfRecipes}</p>
                 <p className=' my-1 '>Likes : {data.likes}</p>
 
-                <div className="card-actions justify-start">
+                <div className="card-actions justify-center lg:justify-start">
                     <button className="btn btn-primary btn-sm rounded-sm" onClick={()=>handleDetailsBtn(data.id)}>View Recipes <FaArrowRight className='ml-1'/></button>
                 </div>
             </div>

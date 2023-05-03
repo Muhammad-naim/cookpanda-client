@@ -1,15 +1,10 @@
 import React, { useState } from 'react';
-import Navbar from '../sheared/navbar/Navbar';
-import { FaEye, FaEyeSlash } from 'react-icons/fa';
+import { FaEye, FaEyeSlash, FaGithub, FaGoogle } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+
 const Login = () => {
     const [isvisible, setIsVisible] = useState(false)
     const [feedbackMessage, setFeedbackMessage] = useState('')
-    // const navigate = useNavigate();
-    // const location = useLocation()
-    // console.log(location);
-    // const from = (location.state?.from?.pathname || "/");
-    // console.log(from);
     const handleShowBtn = () => {
         setIsVisible(!isvisible);
     }
@@ -18,17 +13,19 @@ const Login = () => {
         const form = event.target;
         const email = form.email.value;
         const password = form.password.value;
-        console.log(email, password);
+    }
+    const handleSignInWithsocials = (provider) => {
+        
     }
     return (
         <>
-            <div className="hero min-h-screen bg-base-100">
+            <div className="hero  lg:min-h-screen  bg-base-100">
                 <div className="hero-content flex-col ">
                     <div className="text-center lg:text-left">
                         <h1 className="text-5xl font-bold">Login now!</h1>
                     </div>
                     <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-                        <form className="card-body" onSubmit={handleLogin}>
+                        <form className="card-body pb-2" onSubmit={handleLogin}>
                             <div className="form-control">
                                 <input type="text" name="email" placeholder="email" className="input input-bordered" />
                             </div>
@@ -55,6 +52,20 @@ const Login = () => {
                             </div>
                             <p className='text-center'><small>New here? <Link to="/register">register</Link></small></p>
                         </form>
+                        <div className='form-control mb-4'>
+                            <button
+                                className="btn btn-sm btn-outline btn-primary w-56 my-1 mx-auto"
+                                onClick={() => handleSignInWithsocials(googleProvider)}
+                            >
+                                <FaGoogle className='mr-1' />Continue with Google
+                            </button>
+                            <button
+                                className="btn btn-sm btn-outline btn-primary w-56 my-1 mx-auto"
+                                onClick={() => { handleSignInWithsocials(gitHubProvider) }}
+                            >
+                                <FaGithub className='mr-1' />Continue with Github
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>

@@ -1,8 +1,14 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 const Navbar = () => {
-    const [user, setUser] = useState(true)
+    const [user, setUser] = useState(null)
+    const handleLogOut = () => {
+    }
+
+
+
+
     return (
         <div className="navbar bg-base-100 ">
             <div className="navbar-start ">
@@ -15,7 +21,7 @@ const Navbar = () => {
                         <li><Link to='/blogs'>Blogs</Link></li>
                     </ul>
                 </div>
-                <h2 className='text-2xl font-bold'>COOKPANNDA</h2>
+                <h2 className='text-2xl font-bold'>COOK<span className='text-primary'>PANNDA</span></h2>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
@@ -24,8 +30,22 @@ const Navbar = () => {
                 </ul>
             </div>
             <div className="navbar-end">
-                <button className="btn btn-sm btn-ghost" >{user ? 'photo' : <Link to="/login" className="btn btn-sm btn-active">Login</Link>}</button>
+                {user ?
+                    <>  <div className='tooltip tooltip-left' data-tip={user?.displayName}>
+                            <img src={user?.photoURL} alt="user"
+                                className='max-h-8 max-w-8 rounded-full  border-2 shadow-md'
+                            />
+                        </div>
 
+                        <button
+                            className='btn btn-sm btn-primary ml-2'
+                            onClick={handleLogOut}
+                        >
+                            Logout
+                        </button>
+                    </> :
+                    <Link to="/login" className="btn btn-sm btn-primary hover:">Login</Link>
+                }
             </div>
         </div>
     );
