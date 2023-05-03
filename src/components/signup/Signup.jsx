@@ -1,10 +1,12 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useContext, useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
+import { authContext } from '../../firebase/authProvider/AuthProvider';
 const Signup = () => {
-
+    const { createUser, seUserInfo } = useContext(authContext);
     const [isvisible, setIsVisible] = useState(false)
     const [feedbackMessage, setFeedbackMessage] = useState('')
+    const navigate = useNavigate();
     const handleShowBtn = () => {
         setIsVisible(!isvisible);
     }
@@ -24,6 +26,20 @@ const Signup = () => {
         if (password !== confirm) {
             setFeedbackMessage("password didn't match.")
         }
+        createUser(email, password)
+            .then(result => {
+                seUserInfo(name, imgURL)
+                    .then(result => {
+                        console.log(result);
+                    })
+                    .catch(error => {
+                        console.log(error.message);
+                    })
+                navigate('/')
+            })
+            .catch(error => {
+                console.log(error.message);
+            })
 
     }
     return (

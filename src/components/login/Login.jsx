@@ -1,10 +1,17 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
+import Navbar from '../sheared/navbar/Navbar';
 import { FaEye, FaEyeSlash, FaGithub, FaGoogle } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
-
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { authContext } from '../../firebase/authProvider/AuthProvider';
 const Login = () => {
+    const { signInWithPassword, googleProvider, gitHubProvider, sighInWithSocials } = useContext(authContext);
     const [isvisible, setIsVisible] = useState(false)
     const [feedbackMessage, setFeedbackMessage] = useState('')
+    const navigate = useNavigate();
+    const location = useLocation()
+    console.log(location);
+    const from = (location.state?.from?.pathname || "/");
+    console.log(from);
     const handleShowBtn = () => {
         setIsVisible(!isvisible);
     }
@@ -13,9 +20,21 @@ const Login = () => {
         const form = event.target;
         const email = form.email.value;
         const password = form.password.value;
+        signInWithPassword(email, password)
+            .then(result => {
+                navigate(from)
+            })
+            .catch(error => console.log(error.message))
     }
     const handleSignInWithsocials = (provider) => {
-        
+        sighInWithSocials(provider)
+            .then(result => {
+                console.log(result.user);
+                navigate(from)
+            })
+            .catch(error => {
+                console.log(error);
+            })
     }
     return (
         <>

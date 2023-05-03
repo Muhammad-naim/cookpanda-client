@@ -14,13 +14,16 @@ import Loader from './loader/Loader';
 import CoverflowEffect from './components/test/CoverflowEffect';
 import Blogs from './components/blogs/Blogs';
 import FoodDetails from './components/foodSection/foodDetails/FoodDetails';
-
+import AuthProvider from './firebase/authProvider/AuthProvider';
+import PrivateRoute from './components/privateRoute/PrivateRoute';
+import ErrorPage from './components/pages/errorPage/ErrorPage';
 
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Layout />,
+    errorElement: <ErrorPage/>,
     children: [
       {
         path: "/",
@@ -36,17 +39,21 @@ const router = createBrowserRouter([
       },
       {
         path: '/chef/:id',
-        element: <ChefDetails/>
+        element: <PrivateRoute><ChefDetails/></PrivateRoute>
       },
       {
         path: "/items/:id",
-        element: <FoodDetails/>
+        element: <PrivateRoute><FoodDetails/></PrivateRoute>
       },
       {
         path: '/blogs',
         element: <Blogs />
       }
     ]
+  },
+  {
+    path: "*",
+    element: <ErrorPage/>
   },
   {
     path: "/test",
@@ -58,8 +65,10 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
+    <AuthProvider>
       <Loader>
-        <RouterProvider router={router}/>
+        <RouterProvider router={router} />
       </Loader>
+    </AuthProvider>
   </React.StrictMode>,
 )

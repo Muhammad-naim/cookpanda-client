@@ -1,9 +1,12 @@
 import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { authContext } from '../../../firebase/authProvider/AuthProvider';
 
 const Navbar = () => {
-    const [user, setUser] = useState(null)
+    const { user, logOut } = useContext(authContext)
+
     const handleLogOut = () => {
+        logOut()
     }
 
 
