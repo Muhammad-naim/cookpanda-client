@@ -1,45 +1,66 @@
 import ReactStars from "react-rating-stars-component";
 import React, { useEffect, useState } from 'react';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { useParams } from 'react-router-dom';
+import { FaHeart, FaRegHeart } from "react-icons/fa";
 
 const FoodDetails = () => {
     const [itemData, setItemData] = useState({})
-    const [rating, setRating] = useState(0);
+    const [favorite, setFavorite] = useState(false)
+    const [rating, setRatings] = useState(0)
     const { id } = useParams()
     useEffect(() => {
         fetch(`https://cookpanda-backend-muhammad-naim.vercel.app/items/${id}`)
             .then(res => res.json())
             .then(data => {
-                setRating(data.ratings)
                 setItemData(data)
+                setRatings(data?.ratings)
             })
             .catch(error => console.log(error))
     }, [])
     const { name, foodImageURL, ingredients, description, cookingMethod } = itemData;
+    const notify = () => toast.success('Added to favorite', {
+        position: "top-right",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "light",
+        });; 
     return (
         <div className="hero min-h-screen bg-base-200">
-            <div className="hero-content grid grid-cols-1 lg:grid-cols-2 gap-2">
+            <div className="hero-content grid grid-cols-1 lg:grid-cols-2 lg:gap-6 ">
                 <img src={foodImageURL} className="lg:max-w-full mx-auto rounded-lg shadow-2xl" />
                 <div >
-                    <h1 className="text-5xl font-bold">{name}</h1>
+                    <div className="flex items-center">
+                        <h1 className="text-5xl font-bold">{name}</h1>
+                        <div className="tooltip  tooltip-right bg-transparent text-black" data-tip="Add to Favorite">
+                            <button
+                                className={" m-2 bg-transparent hover:bg-transparent"}
+                                
+                                onClick={() => {
+                                    setFavorite(true)
+                                    notify()
+                                }}
+                                disabled={favorite}
+                            >
+                                {favorite ? <FaHeart className="text-red-700 text-lg" /> : <FaRegHeart className="text-lg"/>}
+                            </button>
+                            <ToastContainer/>
+                        </div>
+                    </div>
                     <p className="">{description}</p>
-                    <ul className='list-disc'><span>Ingredients:</span>
+                    <ul className='list-disc'><span className="font-semibold">Ingredients:</span>
                         {
-                            (ingredients)?.map((item, index) => <li key={index} className='ms-14'>{item}</li>)
+                            (ingredients)?.map((item, index) => <li key={index} className='ms-14 '>{item}</li>)
                         }
                     </ul>
                     <p><span className='font-semibold'>Cooking Method:</span> {cookingMethod}</p>
                     <div className=''>
-                        <p><span className="font-semibold">Rating:</span>{parseFloat(rating).toPrecision(2)}</p>
-                        {rating && <ReactStars
-                            value={rating}
-                            count={5}
-                            a11y={false}
-                            edit={false}
-                            size={24}
-                            isHalf={true}
-                            activeColor="#ffd700"
-                        />}
+                        <p><span className="font-semibold">Rating:</span>{rating && parseFloat(rating).toPrecision(2)}</p>
                     </div>
                 </div>
             </div>

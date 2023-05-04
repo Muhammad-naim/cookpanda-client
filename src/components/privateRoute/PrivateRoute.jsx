@@ -5,7 +5,15 @@ import { Navigate, useLocation } from 'react-router-dom';
 const PrivateRoute = ({ children }) => {
     const location = useLocation();
     console.log(location); 
-    const { user } = useContext(authContext)
+    const { user, loading } = useContext(authContext)
+    if (loading) {
+        return (
+            <div className='my-8 flex justify-center'>
+            <progress className="progress w-56 mx-auto"></progress>
+        </div>
+        )
+        
+    }
     if (user) {
         return children;
     }
