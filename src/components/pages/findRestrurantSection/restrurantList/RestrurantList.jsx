@@ -12,8 +12,8 @@ const RestrurantList = () => {
     return (
         <div className='my-auto max-h-96 overflow-y-scroll'>
             {
-                restaurants.map(item => {
-                    return (<div className='p-4 mx-auto w-10/12 shadow-md rounded text-center hover:bg-[#da9691]' onClick={() => handleSetCoordinate([item?.coordinates?.latitude, item?.coordinates?.longitude])}>
+                restaurants.map((item, index) => {
+                    return (<div key={index} className='p-4 mx-auto w-10/12 shadow-md rounded text-center hover:bg-[#da9691]' onClick={() => handleSetCoordinate([item?.coordinates?.latitude, item?.coordinates?.longitude])}>
                         <p>{item.name}</p>
                     </div>)
                 })
