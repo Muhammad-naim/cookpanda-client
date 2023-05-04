@@ -9,8 +9,8 @@ const Layout = () => {
         <div className='container mx-auto'>
             <Navbar />
             <div>
-                {navigation.state === 'loading' ? "loading" : ""}
-            </div>
+                {navigation.state === 'loading'? "loading": ""}
+                </div>
                 <Outlet />
             <Footer />
         </div>

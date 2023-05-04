@@ -12,21 +12,18 @@ import "./Banner.css";
 import { Autoplay, Pagination, Navigation } from "swiper";
 import { loaderContext } from "../../loader/Loader";
 import BannerCard from "./bannerCard/BannerCard";
+import { useNavigation } from "react-router-dom";
 
 const Banner = () => {
-    // const [foodItems, setFoodItems] = useState([])
-    // useEffect(() => {
-    //     fetch('https://cookpanda-backend-muhammad-naim.vercel.app/items')
-    //         .then(res => res.json())
-    //         .then(data => setFoodItems(data))
-    //         .catch(error => console.log(error))
-    // }, [])
-
-
     const { foodItems } = useContext(loaderContext);
-    // console.log(foodItems);
+    const navigation = useNavigation()
+    console.log(navigation.state);
+
     return (
         <>
+            <div>
+                {navigation.state === "loading" ? "loading" : ""}
+            </div>
             <Swiper
                 spaceBetween={30}
                 centeredSlides={true}

@@ -1,8 +1,5 @@
 import React, { createContext, useEffect, useState } from 'react';
 
-
-
-
 export const loaderContext = createContext();
 const Loader = ({children}) => {
     const [foodItems, setFoodItems] = useState([])
@@ -19,8 +16,7 @@ const Loader = ({children}) => {
             .then(data => setChefData(data))
             .catch(error => console.log(error))
     }, [])
-    // console.log(foodItems, chefData);
-    
+
     const data = {
         chefData,
         foodItems

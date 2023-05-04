@@ -2,13 +2,14 @@ import ReactStars from "react-rating-stars-component";
 import React, { useEffect, useState } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { FaHeart, FaRegHeart } from "react-icons/fa";
 
 const FoodDetails = () => {
     const [itemData, setItemData] = useState({})
     const [favorite, setFavorite] = useState(false)
     const [rating, setRatings] = useState(0)
+    const navigate = useNavigate()
     const { id } = useParams()
     useEffect(() => {
         fetch(`https://cookpanda-backend-muhammad-naim.vercel.app/items/${id}`)
@@ -17,7 +18,7 @@ const FoodDetails = () => {
                 setItemData(data)
                 setRatings(data?.ratings)
             })
-            .catch(error => console.log(error))
+            .catch(error => navigate('/error'))
     }, [])
     const { name, foodImageURL, ingredients, description, cookingMethod } = itemData;
     const notify = () => toast.success('Added to favorite', {

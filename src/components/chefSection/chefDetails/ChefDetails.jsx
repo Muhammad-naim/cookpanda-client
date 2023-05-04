@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { loaderContext } from '../../../loader/Loader';
 import Swiper from 'react-id-swiper';
 import FoodCard from '../../foodSection/foodCard/FoodCard';
@@ -9,6 +9,7 @@ const ChefDetails = () => {
     const {foodItems} = useContext(loaderContext)
     const [chefDetails, setChefDetails] = useState({});
     const [isFiltered, setIsFiltered] = useState(false)
+    const navigate = useNavigate()
     useEffect(() => {
         fetch(`https://cookpanda-backend-muhammad-naim.vercel.app/chefs/${id}`)
             .then(res => res.json())
@@ -16,6 +17,7 @@ const ChefDetails = () => {
                 setChefDetails(data)
                 setIsFiltered(true)
             })
+            .catch(error => navigate('/error'))
     }, [])
 
     const { recipeIds } = chefDetails;
