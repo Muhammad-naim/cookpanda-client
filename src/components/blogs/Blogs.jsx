@@ -1,10 +1,14 @@
-import React from 'react';
+import React, { useRef } from 'react';
+import Pdf from "react-to-pdf";
 import './blogs.css'
 const Blogs = () => {
+    const refer = useRef(null)
     return (
-        <div className='px-4'>
-            
-            <div>
+        <div >
+            <Pdf targetRef={refer} filename="code-example.pdf">
+                {({ toPdf }) => <button className='btn my-4 btn-sm bg-[#FF7B74] hover:bg-[#e96b64]' onClick={toPdf}>Generate Pdf</button>}
+            </Pdf>
+            <div className='px-4' ref={refer} >
                 <div>
                     <h2 className='question'>What is the differences between uncontrolled and controlled components?</h2>
                     <p className='answer'>In react, controlled components are those who's state and behavior is controlled by it's parent component via props. So there has to be a dat flow from parent to child components.,<br />
