@@ -30,10 +30,9 @@ const ChefDetails = () => {
     }
     return (
         <div className='my-8'>
-            <LazyLoad height={240}>
                 <div className="hero  bg-base-200">
                     <div className="hero-content grid grid-cols-1 lg:grid-cols-2">
-                        <LazyLoad height={240}>
+                        <LazyLoad >
                             <img src={chefDetails.chefPhotoURL} className="max-w-lg rounded-md shadow-xl mx-auto" />
                         </LazyLoad>
                         <div>
@@ -45,7 +44,6 @@ const ChefDetails = () => {
                         </div>
                     </div>
                 </div>
-            </LazyLoad>
             <div className='grid grid-cols-1 lg:grid-cols-4 gap-2 my-8 mx-auto'>
                 {
                     chefRecipes.map(item => {

@@ -1,10 +1,13 @@
 <h2>Cookpanda</h2>
 
+<p>About Cookpanda:</p>
 <ul>
-    <li>test</li>
-    <li>test</li>
-    <li>test</li>
-    <li>test</li>
+    <li>informative website on bangladeshi traditional chefs and food items.</li>
+    <li>Build with react.</li>
+    <li>Minimalistic UI.</li>
+    <li>used google firebase for authentication system.</li>
+    <li>One-click sign in method with google and github</li>
+    <li>responsive for desktop and mobile user.</li>
 </ul>
 
 

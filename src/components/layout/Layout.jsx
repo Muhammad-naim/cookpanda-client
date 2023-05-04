@@ -7,14 +7,10 @@ const Layout = () => {
     useEffect(() => {
         window.scrollTo(0, 0);
     }, []);
-    const navigation = useNavigation()
     return (
         <div className='container mx-auto'>
             <Navbar />
-            <div>
-                {navigation.state === 'loading'? "loading": ""}
-                </div>
-                <Outlet />
+            <Outlet />
             <Footer />
         </div>
     );

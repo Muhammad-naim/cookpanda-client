@@ -36,10 +36,10 @@ const FoodDetails = () => {
         theme: "light",
     });;
     return (
-        <LazyLoad height={414}>
+        <LazyLoad>
             <div className="hero min-h-screen bg-base-200 rounded-md">
                 <div className="hero-content grid grid-cols-1 lg:grid-cols-2 lg:gap-6 ">
-                    <LazyLoad height={414}>
+                    <LazyLoad >
                         <img src={foodImageURL} className="lg:max-w-full mx-auto rounded-md shadow-2xl" />
                     </LazyLoad>
                     <div >

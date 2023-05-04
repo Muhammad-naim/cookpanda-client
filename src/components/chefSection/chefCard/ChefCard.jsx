@@ -10,15 +10,15 @@ const ChefCard = ({ data }) => {
     }
     return (
         <div className="card card-compact !rounded-md shadow-md text-center lg:text-left bg-[#f8dfdd]">
-            <LazyLoad height={309}>
                 <figure>
+             <LazyLoad  threshold={0.95} placeholder={<p>Loading...</p>}>
                     <img
                         src={data.chefPhotoURL}
                         alt={data.chefName}
                         className='rounded-sm w-full'
                     />
-                </figure>
             </LazyLoad>
+                </figure>
             <div className="card-body !leading-none">
                 <h2 className="card-title !leading-1 mx-auto lg:mx-0 text-[#F06B64]">{data.chefName}</h2>
                 <p>Experience: {data.yearsOfExperience}</p>

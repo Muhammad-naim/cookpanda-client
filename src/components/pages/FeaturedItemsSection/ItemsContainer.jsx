@@ -3,13 +3,16 @@ import { loaderContext } from '../../../loader/Loader';
 
 const ItemsContainer = () => {
     const { foodItems } = useContext(loaderContext)
-    const topRated = foodItems.filter(item=> item.ratings > 4.5)
+    const topRated = foodItems.filter(item => item.ratings > 4.5)
+    const prefered = foodItems.filter(item => item.ratings > 4.2)
+    console.log(topRated);
+
     return (
         <div className='grid grid-cols-2 lg:grid-cols-3 p-4 bg-[#f3d8d6] rounded-md'>
             <div className='flex flex-col'>
                 <h3 className='text-lg my-3 '>Top rated</h3>
                 {
-                    foodItems.map(item => {
+                    topRated.map(item => {
                         return <div key={item?.foodID} className='flex items-center '>
                             <div className='w-8 '>
                                 <img src={item.foodImageURL} className='w-full my-auto' />
@@ -44,7 +47,7 @@ const ItemsContainer = () => {
                 <div className='flex flex-col'>
                 <h3 className='text-lg my-3 '>Chef's preference</h3>
                     {
-                        foodItems.map(item => {
+                        prefered.map(item => {
                             return <div key={item?.foodID} className='flex items-center m'>
                                 <div className='w-8 rounded-sm'>
                                     <img src={item.foodImageURL} className='w-full my-auto' />

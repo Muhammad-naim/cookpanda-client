@@ -13,7 +13,6 @@ import { Autoplay, Pagination, Navigation } from "swiper";
 import { loaderContext } from "../../loader/Loader";
 import BannerCard from "./bannerCard/BannerCard";
 import { useNavigation } from "react-router-dom";
-import LazyLoad from "react-lazyload";
 
 const Banner = () => {
     const { foodItems } = useContext(loaderContext);
@@ -21,7 +20,7 @@ const Banner = () => {
 
     return (
         <>
-            <LazyLoad height={315}>
+            
                 <Swiper
                     spaceBetween={30}
                     centeredSlides={true}
@@ -53,7 +52,6 @@ const Banner = () => {
                         )
                     }
                 </Swiper>
-            </LazyLoad>
         </>
     );
 };
