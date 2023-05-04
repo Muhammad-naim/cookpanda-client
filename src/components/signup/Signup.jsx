@@ -80,7 +80,7 @@ const Signup = () => {
                             </div>
                             <p><small>{feedbackMessage}</small></p>
                         <div className="form-control mt-6">
-                            <button className="btn btn-primary">Register</button>
+                            <button className="btn bg-[#FF7B74] hover:bg-[#e96b64]">Register</button>
                         </div>
                         <p className='text-center'><small>Already have an account? <Link to="/login">login</Link></small></p>
                     </form>

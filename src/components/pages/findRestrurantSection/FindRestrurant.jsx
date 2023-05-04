@@ -16,8 +16,8 @@ const FindRestrurant = () => {
     }
     return (
         <restrurantContext.Provider value={coInfo}>
-            <div className='text-center my-8'>
-                <h2 className='text-xl font-semibold'>Best Restaurants in Banglaesh</h2>
+            <div className='text-center  my-8'>
+                <h1 className='text-2xl font-semibold py-6'>Best Restaurants in Banglaesh</h1>
                 <div className='grid reve grid-cols-1 lg:grid-cols-2 gap-4 my-2 pb-2 '>
                     <RestrurantList />
                     <MapComponent />

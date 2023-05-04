@@ -1,0 +1,9 @@
+.question{
+    font-size: large;
+    font-weight: 800;
+    margin-bottom: 10px;
+}
+.answer{
+    font-size: 18px;
+    padding-left: 40px;
+}

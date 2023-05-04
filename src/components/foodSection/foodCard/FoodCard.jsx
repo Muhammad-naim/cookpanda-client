@@ -15,10 +15,11 @@ const FoodCard = ({ data }) => {
                             className=" w-full h-60  scale-100 transition-all ease-in-out duration-200 delay-0 object-cover"
                         />
                         <div className="absolute top-0 w-full h-full opacity-0 bg-neutral-700/50 transition-all ease-in-out duration-200 delay-0 hover:opacity-100">
-                            <div>
+                            <div className='w-full my-auto'>
                                 <h3 className="text-white text-lg font-semibold my-1">{data.name}</h3>
                             <span className='post'>{data.description}</span>
-                            <div className='flex justify-center'>
+                        </div>
+                        <div className='flex justify-center bottom-0'>
                             {rating && <ReactStars
                             value={rating}
                             count={5}
@@ -28,7 +29,6 @@ const FoodCard = ({ data }) => {
                             isHalf={true}
                             activeColor="#ffd700"
                         />}
-                            </div>
                             </div>
                         </div>
                     </div>

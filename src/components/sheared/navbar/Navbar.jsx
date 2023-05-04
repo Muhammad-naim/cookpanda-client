@@ -24,7 +24,7 @@ const Navbar = () => {
                         <li><Link to='/blogs'>Blogs</Link></li>
                     </ul>
                 </div>
-                <h2 className='text-2xl font-bold'>COOK<span className='text-primary'>PANNDA</span></h2>
+                <h2 className='text-2xl font-bold'>COOK<span className='text-[#f06b64] '>PANNDA</span></h2>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
@@ -41,13 +41,13 @@ const Navbar = () => {
                         </div>
 
                         <button
-                            className='btn btn-sm btn-primary ml-2'
+                            className='btn btn-sm bg-[#FF7B74] hover:bg-[#e96b64] ml-2'
                             onClick={handleLogOut}
                         >
                             Logout
                         </button>
                     </> :
-                    <Link to="/login" className="btn btn-sm btn-primary hover:">Login</Link>
+                    <Link to="/login" className="btn btn-sm bg-[#FF7B74] hover:bg-[#e96b64]">Login</Link>
                 }
             </div>
         </div>

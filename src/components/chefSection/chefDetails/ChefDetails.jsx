@@ -6,7 +6,7 @@ import FoodCard from '../../foodSection/foodCard/FoodCard';
 
 const ChefDetails = () => {
     const { id } = useParams()
-    const {foodItems} = useContext(loaderContext)
+    const { foodItems } = useContext(loaderContext)
     const [chefDetails, setChefDetails] = useState({});
     const [isFiltered, setIsFiltered] = useState(false)
     const navigate = useNavigate()
@@ -19,13 +19,15 @@ const ChefDetails = () => {
             })
             .catch(error => navigate('/error'))
     }, [])
-
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
     const { recipeIds } = chefDetails;
     let chefRecipes = []
     if (isFiltered) {
-         chefRecipes = foodItems.filter(item => recipeIds.includes(item?.foodID))
+        chefRecipes = foodItems.filter(item => recipeIds.includes(item?.foodID))
     }
-        return (
+    return (
         <div className='my-8'>
             <div className="hero  bg-base-200">
                 <div className="hero-content grid grid-cols-1 lg:grid-cols-2">
@@ -42,7 +44,7 @@ const ChefDetails = () => {
             <div className='grid grid-cols-1 lg:grid-cols-4 gap-2 my-8 mx-auto'>
                 {
                     chefRecipes.map(item => {
-                      return  <FoodCard
+                        return <FoodCard
                             key={item.foodID}
                             data={item}
 

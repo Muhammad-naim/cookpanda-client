@@ -67,19 +67,19 @@ const Login = () => {
                                     Forgot password?</Link>
                             </label>
                             <div className="form-control mt-6">
-                                <button className="btn btn-primary">Login</button>
+                                <button className="btn bg-[#FF7B74] hover:bg-[#e96b64]">Login</button>
                             </div>
                             <p className='text-center'><small>New here? <Link to="/register">register</Link></small></p>
                         </form>
                         <div className='form-control mb-4'>
                             <button
-                                className="btn btn-sm btn-outline btn-primary w-56 my-1 mx-auto"
+                                className="btn btn-sm btn-outline bg-[#FF7B74] hover:bg-[#e96b64] w-56 my-1 mx-auto"
                                 onClick={() => handleSignInWithsocials(googleProvider)}
                             >
                                 <FaGoogle className='mr-1' />Continue with Google
                             </button>
                             <button
-                                className="btn btn-sm btn-outline btn-primary w-56 my-1 mx-auto"
+                                className="btn btn-sm btn-outline bg-[#FF7B74] hover:bg-[#e96b64] w-56 my-1 mx-auto"
                                 onClick={() => { handleSignInWithsocials(gitHubProvider) }}
                             >
                                 <FaGithub className='mr-1' />Continue with Github

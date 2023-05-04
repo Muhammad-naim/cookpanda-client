@@ -20,6 +20,9 @@ const FoodDetails = () => {
             })
             .catch(error => navigate('/error'))
     }, [])
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
     const { name, foodImageURL, ingredients, description, cookingMethod } = itemData;
     const notify = () => toast.success('Added to favorite', {
         position: "top-right",
@@ -30,27 +33,27 @@ const FoodDetails = () => {
         draggable: true,
         progress: undefined,
         theme: "light",
-        });; 
+    });;
     return (
-        <div className="hero min-h-screen bg-base-200">
+        <div className="hero min-h-screen bg-base-200 rounded-md">
             <div className="hero-content grid grid-cols-1 lg:grid-cols-2 lg:gap-6 ">
-                <img src={foodImageURL} className="lg:max-w-full mx-auto rounded-lg shadow-2xl" />
+                <img src={foodImageURL} className="lg:max-w-full mx-auto rounded-md shadow-2xl" />
                 <div >
                     <div className="flex items-center">
                         <h1 className="text-5xl font-bold">{name}</h1>
                         <div className="tooltip  tooltip-right bg-transparent text-black" data-tip="Add to Favorite">
                             <button
                                 className={" m-2 bg-transparent hover:bg-transparent"}
-                                
+
                                 onClick={() => {
                                     setFavorite(true)
                                     notify()
                                 }}
                                 disabled={favorite}
                             >
-                                {favorite ? <FaHeart className="text-red-700 text-lg" /> : <FaRegHeart className="text-lg"/>}
+                                {favorite ? <FaHeart className="text-red-700 text-lg" /> : <FaRegHeart className="text-lg" />}
                             </button>
-                            <ToastContainer/>
+                            <ToastContainer />
                         </div>
                     </div>
                     <p className="">{description}</p>

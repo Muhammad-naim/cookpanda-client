@@ -10,12 +10,11 @@ const MapComponent = () => {
     }, [coordinate])
     console.log(anchor);
     return (
-        <div className='mx-auto order-first lg:order-last'>
+        <div className='mx-auto  order-first lg:order-last shadow-md'>
             <Map
                 height={400}
                 width={400}
                 center={anchor}
-                
             >
                 <Marker width={50} anchor={anchor} />
             </Map>
