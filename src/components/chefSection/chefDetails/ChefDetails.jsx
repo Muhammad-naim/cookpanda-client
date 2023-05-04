@@ -3,6 +3,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { loaderContext } from '../../../loader/Loader';
 import Swiper from 'react-id-swiper';
 import FoodCard from '../../foodSection/foodCard/FoodCard';
+import LazyLoad from 'react-lazyload';
 
 const ChefDetails = () => {
     const { id } = useParams()
@@ -29,18 +30,22 @@ const ChefDetails = () => {
     }
     return (
         <div className='my-8'>
-            <div className="hero  bg-base-200">
-                <div className="hero-content grid grid-cols-1 lg:grid-cols-2">
-                    <img src={chefDetails.chefPhotoURL} className="max-w-lg rounded-md shadow-xl mx-auto" />
-                    <div>
-                        <h1 className="text-3xl font-bold"> {chefDetails.chefName}</h1>
-                        <p className="py-0">{chefDetails.bio}</p>
-                        <p className="py-0"><span className='font-semibold'>Experience:</span> {chefDetails.yearsOfExperience} years</p>
-                        <p className="py-0"><span className='font-semibold'>Total Recipes: </span>{chefDetails.numOfRecipes}</p>
-                        <p className="py-0"><span className='font-semibold'>Likes:</span> {chefDetails.likes}</p>
+            <LazyLoad height={240}>
+                <div className="hero  bg-base-200">
+                    <div className="hero-content grid grid-cols-1 lg:grid-cols-2">
+                        <LazyLoad height={240}>
+                            <img src={chefDetails.chefPhotoURL} className="max-w-lg rounded-md shadow-xl mx-auto" />
+                        </LazyLoad>
+                        <div>
+                            <h1 className="text-3xl font-bold"> {chefDetails.chefName}</h1>
+                            <p className="py-0">{chefDetails.bio}</p>
+                            <p className="py-0"><span className='font-semibold'>Experience:</span> {chefDetails.yearsOfExperience} years</p>
+                            <p className="py-0"><span className='font-semibold'>Total Recipes: </span>{chefDetails.numOfRecipes}</p>
+                            <p className="py-0"><span className='font-semibold'>Likes:</span> {chefDetails.likes}</p>
+                        </div>
                     </div>
                 </div>
-            </div>
+            </LazyLoad>
             <div className='grid grid-cols-1 lg:grid-cols-4 gap-2 my-8 mx-auto'>
                 {
                     chefRecipes.map(item => {

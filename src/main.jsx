@@ -11,7 +11,6 @@ import Signup from './components/signup/Signup';
 import Home from './components/home/Home';
 import ChefDetails from './components/chefSection/chefDetails/ChefDetails';
 import Loader from './loader/Loader';
-import CoverflowEffect from './components/test/CoverflowEffect';
 import Blogs from './components/blogs/Blogs';
 import FoodDetails from './components/foodSection/foodDetails/FoodDetails';
 import AuthProvider from './firebase/authProvider/AuthProvider';
@@ -55,11 +54,6 @@ const router = createBrowserRouter([
     path: "/error",
     element: <ErrorPage/>
   },
-  {
-    path: "/test",
-    element: <CoverflowEffect />
-  },
-
 ]);
 
 

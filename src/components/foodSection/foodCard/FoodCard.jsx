@@ -5,7 +5,6 @@ import { FaFacebook, FaTwitter, FaYoutube } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 const FoodCard = ({ data }) => {
     const rating = data.ratings;
-    // console.log(data);
     return (
             <Link to= {`/items/${data.foodID}`}>
                 <div className="our-team overflow-hidden text-center rounded-md">

@@ -29,22 +29,18 @@ const Signup = () => {
         createUser(email, password)
             .then(result => {
                 seUserInfo(name, imgURL)
-                    .then(result => {
-                        console.log(result);
-                    })
-                    .catch(error => {
-                        console.log(error.message);
-                    })
                 navigate('/')
             })
             .catch(error => {
-                console.log(error.message);
+                if (error.message.includes('email-already-in-use')) {
+                    setFeedbackMessage('Email already exist')
+                }
             })
 
     }
     return (
         <>
-            <div className="hero max-h-screen lg:min-h-screen ">
+            <div className="hero lg:min-h-screen ">
             <div className="hero-content flex-col ">
                 <div className="text-center lg:text-left">
                     <h1 className="text-5xl font-bold">Register now!</h1>

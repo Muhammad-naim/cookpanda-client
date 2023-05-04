@@ -4,6 +4,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useNavigate, useParams } from 'react-router-dom';
 import { FaHeart, FaRegHeart } from "react-icons/fa";
+import LazyLoad from "react-lazyload";
 
 const FoodDetails = () => {
     const [itemData, setItemData] = useState({})
@@ -35,40 +36,45 @@ const FoodDetails = () => {
         theme: "light",
     });;
     return (
-        <div className="hero min-h-screen bg-base-200 rounded-md">
-            <div className="hero-content grid grid-cols-1 lg:grid-cols-2 lg:gap-6 ">
-                <img src={foodImageURL} className="lg:max-w-full mx-auto rounded-md shadow-2xl" />
-                <div >
-                    <div className="flex items-center">
-                        <h1 className="text-5xl font-bold">{name}</h1>
-                        <div className="tooltip  tooltip-right bg-transparent text-black" data-tip="Add to Favorite">
-                            <button
-                                className={" m-2 bg-transparent hover:bg-transparent"}
+        <LazyLoad height={414}>
+            <div className="hero min-h-screen bg-base-200 rounded-md">
+                <div className="hero-content grid grid-cols-1 lg:grid-cols-2 lg:gap-6 ">
+                    <LazyLoad height={414}>
+                        <img src={foodImageURL} className="lg:max-w-full mx-auto rounded-md shadow-2xl" />
+                    </LazyLoad>
+                    <div >
+                        <div className="flex items-center">
+                            <h1 className="text-5xl font-bold">{name}</h1>
+                            <div className="tooltip  tooltip-right bg-transparent text-black" data-tip="Add to Favorite">
+                                <button
+                                    className={" m-2 bg-transparent hover:bg-transparent"}
 
-                                onClick={() => {
-                                    setFavorite(true)
-                                    notify()
-                                }}
-                                disabled={favorite}
-                            >
-                                {favorite ? <FaHeart className="text-red-700 text-lg" /> : <FaRegHeart className="text-lg" />}
-                            </button>
-                            <ToastContainer />
+                                    onClick={() => {
+                                        setFavorite(true)
+                                        notify()
+                                    }}
+                                    disabled={favorite}
+                                >
+                                    {favorite ? <FaHeart className="text-red-700 text-lg" /> : <FaRegHeart className="text-lg" />}
+                                </button>
+                                <ToastContainer />
+                            </div>
                         </div>
-                    </div>
-                    <p className="">{description}</p>
-                    <ul className='list-disc'><span className="font-semibold">Ingredients:</span>
-                        {
-                            (ingredients)?.map((item, index) => <li key={index} className='ms-14 '>{item}</li>)
-                        }
-                    </ul>
-                    <p><span className='font-semibold'>Cooking Method:</span> {cookingMethod}</p>
-                    <div className=''>
-                        <p><span className="font-semibold">Rating:</span>{rating && parseFloat(rating).toPrecision(2)}</p>
+                        <p className="">{description}</p>
+                        <ul className='list-disc'><span className="font-semibold">Ingredients:</span>
+                            {
+                                (ingredients)?.map((item, index) => <li key={index} className='ms-14 '>{item}</li>)
+                            }
+                        </ul>
+                        <p><span className='font-semibold'>Cooking Method:</span> {cookingMethod}</p>
+                        <div className=''>
+                            <p><span className="font-semibold">Rating:</span>{rating && parseFloat(rating).toPrecision(2)}</p>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </LazyLoad>
+
 
     );
 };

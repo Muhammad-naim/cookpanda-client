@@ -9,9 +9,7 @@ const Login = () => {
     const [feedbackMessage, setFeedbackMessage] = useState('')
     const navigate = useNavigate();
     const location = useLocation()
-    console.log(location);
     const from = (location.state?.from?.pathname || "/");
-    console.log(from);
     const handleShowBtn = () => {
         setIsVisible(!isvisible);
     }
@@ -24,16 +22,22 @@ const Login = () => {
             .then(result => {
                 navigate(from)
             })
-            .catch(error => console.log(error.message))
+            .catch(error => {
+                if ((error.message).includes('not-found')) {
+                    setFeedbackMessage('User not found.')
+                }
+                else if ((error.message).includes('wrong-password')) {
+                    setFeedbackMessage('wrong-password.')
+                }
+            }
+            )
     }
     const handleSignInWithsocials = (provider) => {
         sighInWithSocials(provider)
             .then(result => {
-                console.log(result.user);
                 navigate(from)
             })
             .catch(error => {
-                console.log(error);
             })
     }
     return (

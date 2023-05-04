@@ -13,48 +13,47 @@ import { Autoplay, Pagination, Navigation } from "swiper";
 import { loaderContext } from "../../loader/Loader";
 import BannerCard from "./bannerCard/BannerCard";
 import { useNavigation } from "react-router-dom";
+import LazyLoad from "react-lazyload";
 
 const Banner = () => {
     const { foodItems } = useContext(loaderContext);
     const navigation = useNavigation()
-    console.log(navigation.state);
 
     return (
         <>
-            <div>
-                {navigation.state === "loading" ? "loading" : ""}
-            </div>
-            <Swiper
-                spaceBetween={30}
-                centeredSlides={true}
-                autoplay={{
-                    delay: 2500,
-                    disableOnInteraction: false,
-                }}
-                pagination={{
-                    clickable: true,
-                }}
-                navigation={true}
-                modules={[Autoplay, Pagination, Navigation]}
-                className="mySwiper"
-            >
-                {
-                    foodItems.map((item,index) => 
-                        <SwiperSlide
-                            className="lg:h-1/3"
-                            style={{ backgroundImage: `url(${item.foodImageURL})`, backgroundRepeat: "no-repeat", backgroundPosition: 'center', backgroundSize: 'cover', }}
-                            key={index}
-                        >
-                            <BannerCard
-                            key={item.id}
-                                data={item}
+            <LazyLoad height={315}>
+                <Swiper
+                    spaceBetween={30}
+                    centeredSlides={true}
+                    autoplay={{
+                        delay: 2500,
+                        disableOnInteraction: false,
+                    }}
+                    pagination={{
+                        clickable: true,
+                    }}
+                    navigation={true}
+                    modules={[Autoplay, Pagination, Navigation]}
+                    className="mySwiper"
+                >
+                    {
+                        foodItems.map((item, index) =>
+                            <SwiperSlide
+                                className="lg:h-1/3"
+                                style={{ backgroundImage: `url(${item.foodImageURL})`, backgroundRepeat: "no-repeat", backgroundPosition: 'center', backgroundSize: 'cover', }}
+                                key={index}
                             >
+                                <BannerCard
+                                    key={item.id}
+                                    data={item}
+                                >
 
-                            </BannerCard>
-                        </SwiperSlide>
-                    )
-               }
-            </Swiper>
+                                </BannerCard>
+                            </SwiperSlide>
+                        )
+                    }
+                </Swiper>
+            </LazyLoad>
         </>
     );
 };

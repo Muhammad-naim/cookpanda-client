@@ -3,9 +3,7 @@ import { loaderContext } from '../../../loader/Loader';
 
 const ItemsContainer = () => {
     const { foodItems } = useContext(loaderContext)
-    console.log(foodItems);
     const topRated = foodItems.filter(item=> item.ratings > 4.5)
-    console.log(topRated);
     return (
         <div className='grid grid-cols-2 lg:grid-cols-3 p-4 bg-[#f3d8d6] rounded-md'>
             <div className='flex flex-col'>

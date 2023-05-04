@@ -10,7 +10,6 @@ const ChefSection = () => {
             .then(data => setChefData(data))
             .catch(error => console.log(error))
     }, [])
-    // console.log(chefData);
     return (
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-3 mt-8 mx-2 lg:mx-0 " >
             {

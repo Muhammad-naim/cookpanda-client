@@ -8,7 +8,6 @@ const MapComponent = () => {
     useEffect(() => {
         setAnchor(coordinate)
     }, [coordinate])
-    console.log(anchor);
     return (
         <div className='mx-auto  order-first lg:order-last shadow-md'>
             <Map

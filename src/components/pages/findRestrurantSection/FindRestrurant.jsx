@@ -6,10 +6,8 @@ export const restrurantContext = createContext(null);
 const FindRestrurant = () => {
     const [coordinate, setCoordinate] = useState([])
     const handleSetCoordinate = (value) => {
-        // console.log(value);
         setCoordinate(value)
     }
-    console.log(coordinate);
     const coInfo = {
         coordinate,
         handleSetCoordinate
@@ -17,7 +15,7 @@ const FindRestrurant = () => {
     return (
         <restrurantContext.Provider value={coInfo}>
             <div className='text-center  my-8'>
-                <h1 className='text-2xl font-semibold py-6'>Best Restaurants in Banglaesh</h1>
+                <h1 className='text-2xl font-semibold py-4 bg-[#f0bebb] rounded-md'>Best Restaurants in Banglaesh</h1>
                 <div className='grid reve grid-cols-1 lg:grid-cols-2 gap-4 my-2 pb-2 '>
                     <RestrurantList />
                     <MapComponent />
