@@ -18,7 +18,6 @@ const Signup = () => {
         const email = form.email.value;
         const password = form.password.value;
         const confirm = form.confirm.value;
-        console.log(imgURL, name, email, password, confirm);
         if (password.length < 6) {
             setFeedbackMessage("Your password must be at least 6 characters");
             return

@@ -8,10 +8,6 @@ const Navbar = () => {
     const handleLogOut = () => {
         logOut()
     }
-
-
-
-
     return (
         <div className="navbar bg-base-100 ">
             <div className="navbar-start ">

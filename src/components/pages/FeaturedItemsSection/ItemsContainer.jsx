@@ -5,7 +5,6 @@ const ItemsContainer = () => {
     const { foodItems } = useContext(loaderContext)
     const topRated = foodItems.filter(item => item.ratings > 4.5)
     const prefered = foodItems.filter(item => item.ratings > 4.2)
-    console.log(topRated);
 
     return (
         <div className='grid grid-cols-2 lg:grid-cols-3 p-4 bg-[#f3d8d6] rounded-md'>

@@ -1,10 +1,9 @@
-import ReactStars from "react-rating-stars-component";
 import React, { useEffect, useState } from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useNavigate, useParams } from 'react-router-dom';
 import { FaHeart, FaRegHeart } from "react-icons/fa";
-import LazyLoad from "react-lazyload";
+import LazyLoad from "react-lazy-load";
 
 const FoodDetails = () => {
     const [itemData, setItemData] = useState({})
@@ -36,10 +35,9 @@ const FoodDetails = () => {
         theme: "light",
     });;
     return (
-        <LazyLoad>
             <div className="hero min-h-screen bg-base-200 rounded-md">
                 <div className="hero-content grid grid-cols-1 lg:grid-cols-2 lg:gap-6 ">
-                    <LazyLoad >
+                    <LazyLoad placeholder={<progress className="progress w-56"></progress>}>
                         <img src={foodImageURL} className="lg:max-w-full mx-auto rounded-md shadow-2xl" />
                     </LazyLoad>
                     <div >
@@ -73,8 +71,6 @@ const FoodDetails = () => {
                     </div>
                 </div>
             </div>
-        </LazyLoad>
-
 
     );
 };

@@ -12,4 +12,4 @@
 
 
 <span style="font-size: 24px;">Live Link:</span><br/> 
-    You can visit the project's link interface on <a href="https://cookpanda-ac87b.web.app/">Here</a>
+    You can visit the project's  live demo on <a href="https://cookpanda-ac87b.web.app/">Here</a>

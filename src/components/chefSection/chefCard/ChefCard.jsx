@@ -1,7 +1,7 @@
 import React from 'react';
-import { FaArrowRight, FaThumbsUp } from 'react-icons/fa'
+import { FaArrowRight, FaRegThumbsUp, FaThumbsUp } from 'react-icons/fa'
 import { useNavigate } from 'react-router-dom';
-import LazyLoad from 'react-lazyload';
+import LazyLoad from 'react-lazy-load';
 
 const ChefCard = ({ data }) => {
     const navigate = useNavigate();
@@ -11,7 +11,7 @@ const ChefCard = ({ data }) => {
     return (
         <div className="card card-compact !rounded-md shadow-md text-center lg:text-left bg-[#f8dfdd]">
                 <figure>
-             <LazyLoad  threshold={0.95} placeholder={<p>Loading...</p>}>
+             <LazyLoad  threshold={0.95} >
                     <img
                         src={data.chefPhotoURL}
                         alt={data.chefName}
@@ -23,7 +23,7 @@ const ChefCard = ({ data }) => {
                 <h2 className="card-title !leading-1 mx-auto lg:mx-0 text-[#F06B64]">{data.chefName}</h2>
                 <p>Experience: {data.yearsOfExperience}</p>
                 <p>Items: {data.numOfRecipes}</p>
-                <p className=' my-1 '>Likes : {data.likes}</p>
+                <p className=' flex items-baseline '><FaThumbsUp className='mr-1 fill-[#F16B64]'/> <p>{data.likes}</p></p>
 
                 <div className="card-actions justify-center lg:justify-start">
                     <button className="btn bg-[#FF7B74] hover:bg-[#e96b64] btn-sm rounded-md" onClick={() => handleDetailsBtn(data.id)}>View Recipes <FaArrowRight className='ml-1' /></button>

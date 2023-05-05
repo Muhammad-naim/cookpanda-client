@@ -3,7 +3,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { loaderContext } from '../../../loader/Loader';
 import Swiper from 'react-id-swiper';
 import FoodCard from '../../foodSection/foodCard/FoodCard';
-import LazyLoad from 'react-lazyload';
+import LazyLoad from 'react-lazy-load';
 
 const ChefDetails = () => {
     const { id } = useParams()
