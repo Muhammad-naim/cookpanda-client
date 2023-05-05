@@ -65,12 +65,12 @@ const Login = () => {
                             <p><small>{feedbackMessage}</small></p> {/* error message */}
                             <label className="label">
                                 <Link
-                                    to="/reset"
+                                    to="/resetPassword"
                                     className="label-text-alt link link-hover"
                                 >
                                     Forgot password?</Link>
                             </label>
-                            <div className="form-control mt-6">
+                            <div className="form-control mt-3">
                                 <button className="btn bg-[#FF7B74] hover:bg-[#e96b64]">Login</button>
                             </div>
                             <p className='text-center'><small>New here? <Link to="/register">register</Link></small></p>

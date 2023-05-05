@@ -16,6 +16,7 @@ import FoodDetails from './components/foodSection/foodDetails/FoodDetails';
 import AuthProvider from './firebase/authProvider/AuthProvider';
 import PrivateRoute from './components/privateRoute/PrivateRoute';
 import ErrorPage from './components/pages/errorPage/ErrorPage';
+import ResetPassword from './components/pages/forgitPassword/resetPassword';
 
 
 const router = createBrowserRouter([
@@ -31,6 +32,10 @@ const router = createBrowserRouter([
       {
         path: "/login",
         element: <Login />
+      },
+      {
+        path: '/resetPassword',
+        element: <ResetPassword/>
       },
       {
         path: "/register",

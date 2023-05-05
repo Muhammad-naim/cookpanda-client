@@ -23,8 +23,7 @@ const ChefCard = ({ data }) => {
                 <h2 className="card-title !leading-1 mx-auto lg:mx-0 text-[#F06B64]">{data.chefName}</h2>
                 <p>Experience: {data.yearsOfExperience}</p>
                 <p>Items: {data.numOfRecipes}</p>
-                <p className=' flex items-baseline '><FaThumbsUp className='mr-1 fill-[#F16B64]'/> <p>{data.likes}</p></p>
-
+                <p className='inline-flex mx-auto lg:mx-0'><FaThumbsUp className='inline mr-1 fill-[#F16B64]'/> <span className='inline-block align-baseline '>{data.likes}</span></p>
                 <div className="card-actions justify-center lg:justify-start">
                     <button className="btn bg-[#FF7B74] hover:bg-[#e96b64] btn-sm rounded-md" onClick={() => handleDetailsBtn(data.id)}>View Recipes <FaArrowRight className='ml-1' /></button>
                 </div>
