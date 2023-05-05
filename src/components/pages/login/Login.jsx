@@ -1,8 +1,7 @@
 import React, { useContext, useState } from 'react';
-import Navbar from '../sheared/navbar/Navbar';
 import { FaEye, FaEyeSlash, FaGithub, FaGoogle } from 'react-icons/fa';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { authContext } from '../../firebase/authProvider/AuthProvider';
+import { authContext } from '../../../firebase/authProvider/AuthProvider';
 const Login = () => {
     const { signInWithPassword, googleProvider, gitHubProvider, sighInWithSocials } = useContext(authContext);
     const [isvisible, setIsVisible] = useState(false)

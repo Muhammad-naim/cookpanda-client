@@ -35,7 +35,6 @@ const Navbar = () => {
                                 className='max-h-8 max-w-8 rounded-full  border-2 shadow-md'
                             />
                         </div>
-
                         <button
                             className='btn btn-sm bg-[#FF7B74] hover:bg-[#e96b64] ml-2'
                             onClick={handleLogOut}

@@ -33,7 +33,7 @@ const ChefDetails = () => {
                 <div className="hero  bg-base-200">
                     <div className="hero-content grid grid-cols-1 lg:grid-cols-2">
                         <LazyLoad >
-                            <img src={chefDetails.chefPhotoURL} className="max-w-lg rounded-md shadow-xl mx-auto" />
+                            <img src={chefDetails.chefPhotoURL} className="max-w-full lg:max-w-lg rounded-md shadow-xl mx-auto" />
                         </LazyLoad>
                         <div>
                             <h1 className="text-3xl font-bold"> {chefDetails.chefName}</h1>

@@ -6,17 +6,17 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import Layout from './components/layout/Layout';
-import Login from './components/login/Login';
-import Signup from './components/signup/Signup';
 import Home from './components/home/Home';
 import ChefDetails from './components/chefSection/chefDetails/ChefDetails';
 import Loader from './loader/Loader';
-import Blogs from './components/blogs/Blogs';
 import FoodDetails from './components/foodSection/foodDetails/FoodDetails';
 import AuthProvider from './firebase/authProvider/AuthProvider';
 import PrivateRoute from './components/privateRoute/PrivateRoute';
 import ErrorPage from './components/pages/errorPage/ErrorPage';
 import ResetPassword from './components/pages/forgitPassword/resetPassword';
+import Login from './components/pages/login/Login';
+import Signup from './components/pages/signup/Signup';
+import Blogs from './components/pages/blogs/Blogs';
 
 
 const router = createBrowserRouter([
@@ -31,7 +31,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/login",
-        element: <Login />
+        element: <Login/>
       },
       {
         path: '/resetPassword',
