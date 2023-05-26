@@ -3,7 +3,7 @@ import { FaEye, FaEyeSlash, FaGithub, FaGoogle } from 'react-icons/fa';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { authContext } from '../../../firebase/authProvider/AuthProvider';
 const Login = () => {
-    const { signInWithPassword, googleProvider, gitHubProvider, sighInWithSocials } = useContext(authContext);
+    const { signInWithPassword, googleProvider, githubProvider, sighInWithSocials } = useContext(authContext);
     const [isvisible, setIsVisible] = useState(false)
     const [feedbackMessage, setFeedbackMessage] = useState('')
     const navigate = useNavigate();
@@ -83,7 +83,7 @@ const Login = () => {
                             </button>
                             <button
                                 className="btn btn-sm btn-outline bg-[#FF7B74] hover:bg-[#e96b64] w-56 my-1 mx-auto"
-                                onClick={() => { handleSignInWithsocials(gitHubProvider) }}
+                                onClick={() => { handleSignInWithsocials(githubProvider) }}
                             >
                                 <FaGithub className='mr-1' />Continue with Github
                             </button>
